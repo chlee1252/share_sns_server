@@ -7,13 +7,13 @@ app = Flask(__name__)
 def main():
   return "Hello"
 
-@app.route('/facebook/<account>')
+@app.route('/facebook')
 def facebook(account):
   userOS = request.user_agent.platform
   if userOS == "ipad" or userOS == "iphone":
     return redirect("fb://profile?id={}".format(account), code=307)
   elif userOS == "android":
-    return redirect("intent://profile/#Intent;package=com.facebook.katana;scheme=fb;end", code=307)
+    return redirect("intent://profile/changhwan.lee.71#Intent;package=com.facebook.katana;scheme=fb;end", code=307)
   else:
     return "This is others"
 
