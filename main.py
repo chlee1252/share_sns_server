@@ -8,7 +8,7 @@ def main():
   return "Hello"
 
 @app.route('/facebook')
-def facebook(account):
+def facebook():
   userOS = request.user_agent.platform
   if userOS == "ipad" or userOS == "iphone":
     return redirect("fb://profile?id={}".format(account), code=307)
