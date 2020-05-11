@@ -11,7 +11,7 @@ def main():
 def facebook():
   userOS = request.user_agent.platform
   if userOS == "ipad" or userOS == "iphone":
-    return redirect("fb://profile?id={}".format(account), code=307)
+    return redirect("fb://profile?id=", code=307)
   elif userOS == "android":
     return redirect("intent://profile/changhwan.lee.71#Intent;package=com.facebook.katana;scheme=fb;end", code=307)
   else:
