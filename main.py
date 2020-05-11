@@ -23,7 +23,7 @@ def snapchat():
   if userOS == "ipad" or userOS == 'iphone':
     return "ios"
   elif userOS == 'android':
-    return redirect("intent://instagram.com/p/chlee1127/#Intent;package=com.instagram.android;scheme=https;end", code=307)
+    return redirect("instagram://user?username=chlee1127", code=307)
   else:
     return 'others'
 
