@@ -11,7 +11,7 @@ def main():
 def facebook():
   userOS = request.user_agent.platform
   if userOS == "ipad" or userOS == "iphone":
-    return "this is ipad or iphone device"
+    return redirect("fb://profile?id=changhwan.lee.71")
   elif userOS == "android":
     return "This is andorid"
   else:
