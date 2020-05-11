@@ -7,11 +7,11 @@ app = Flask(__name__)
 def main():
   return "Hello"
 
-@app.route('/facebook')
-def facebook():
+@app.route('/facebook/<account>')
+def facebook(account):
   userOS = request.user_agent.platform
   if userOS == "ipad" or userOS == "iphone":
-    return redirect("fb://profile?id=changhwan.lee.71", code=307)
+    return redirect("fb://profile?id={}".format(account), code=307)
   elif userOS == "android":
     return "This is andorid"
   else:
@@ -23,7 +23,7 @@ def snapchat():
   if userOS == "ipad" or userOS == 'iphone':
     return "ios"
   elif userOS == 'android':
-    return 'android'
+    return redirect("intent://instagram.com/p/chlee1127/#Intent;package=com.instagram.android;scheme=https;end", code=307)
   else:
     return 'others'
 
