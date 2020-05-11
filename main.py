@@ -13,7 +13,7 @@ def facebook(account):
   if userOS == "ipad" or userOS == "iphone":
     return redirect("fb://profile?id={}".format(account), code=307)
   elif userOS == "android":
-    return "This is andorid"
+    return redirect("intent://profile/#Intent;package=com.facebook.katana;scheme=fb;end", code=307)
   else:
     return "This is others"
 
