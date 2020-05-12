@@ -33,7 +33,7 @@ def instagram():
   if userOS == "ipad" or userOS == 'iphone':
     return redirect("instagram://user?username=chlee1127", code=307)
   elif userOS == 'android':
-    return redirect("intent://instagram.com/username/chlee1127/#Intent;package=com.instagram.android;scheme=https;end", code=307)
+    return redirect("intent://instagram.com/_u/chlee1127/#Intent;package=com.instagram.android;scheme=https;end", code=307)
   else:
     return 'others'
 
