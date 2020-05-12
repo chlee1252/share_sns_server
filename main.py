@@ -21,9 +21,9 @@ def facebook():
 def snapchat():
   userOS = request.user_agent.platform
   if userOS == "ipad" or userOS == 'iphone':
-    return redirect("snapchat://add/chlee1252/", code=307)
+    return redirect("snapchat://add/chlee1252", code=307)
   elif userOS == 'android':
-    return redirect("intent://add/#Intent;scheme=snapchat;package=com.snapchat.android;end;", code=307)
+    return redirect("intent://add/chlee1252#Intent;scheme=snapchat;package=com.snapchat.android;end;", code=307)
   else:
     return 'others '
 
