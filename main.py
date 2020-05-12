@@ -13,17 +13,17 @@ def facebook():
   if userOS == "ipad" or userOS == "iphone":
     return redirect("fb://profile?id=changhwan.lee.71", code=307)
   elif userOS == "android":
-    return redirect("intent://profile/changhwan.lee.71#Intent;package=com.facebook.katana;scheme=fb;end", code=307)
+    return redirect("fb://profile/changhwan.lee.71", code=307)
   else:
-    return "This is others"
+    return redirect("https://www.facebook.com/")
 
 @app.route('/snapchat')
 def snapchat():
   userOS = request.user_agent.platform
   if userOS == "ipad" or userOS == 'iphone':
-    return "ios"
+    return redirect("snapchat://add/chlee1252", code=307)
   elif userOS == 'android':
-    return redirect("instagram://user?username=chlee1127", code=307)
+    return redirect("intent://add/#Intent;scheme=snapchat;package=com.snapchat.android;end;", code=307)
   else:
     return 'others'
 
@@ -31,9 +31,9 @@ def snapchat():
 def instagram():
   userOS = request.user_agent.platform
   if userOS == "ipad" or userOS == 'iphone':
-    return "ios"
+    return redirect("instagram://user?username=chlee1127", code=307)
   elif userOS == 'android':
-    return 'android'
+    return redirect("intent://instagram.com/p/chlee1127/#Intent;package=com.instagram.android;scheme=https;end", code=307)
   else:
     return 'others'
 
