@@ -13,7 +13,7 @@ def facebook():
   if userOS == "ipad" or userOS == "iphone":
     return redirect("fb://profile?id=changhwan.lee.71", code=307)
   elif userOS == "android":
-    return redirect("intent://profile/changhwan.lee.71#Intent;package=com.facebook.katana;scheme=fb;end;", code=307)
+    return redirect("intent://profile/100002434323843#Intent;package=com.facebook.katana;scheme=fb;end", code=307)
   else:
     return redirect("https://www.facebook.com/")
 
