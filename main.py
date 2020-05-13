@@ -1,5 +1,6 @@
 import os
 from flask import Flask, request, redirect
+from src.platform import getOS
 
 app = Flask(__name__)
 
@@ -9,8 +10,8 @@ def main():
 
 @app.route('/facebook/<account>')
 def facebook(account):
-  userOS = request.user_agent.platform
-  if userOS == "ipad" or userOS == "iphone":
+  userOS = getOS()
+  if userOS == 'iOS':
     return redirect("fb://profile?id={}".format(account), code=307)
   elif userOS == "android":
     return redirect("intent://profile/{}#Intent;package=com.facebook.katana;scheme=fb;end".format(account), code=307)
@@ -19,8 +20,8 @@ def facebook(account):
 
 @app.route('/snapchat/<account>')
 def snapchat(account):
-  userOS = request.user_agent.platform
-  if userOS == "ipad" or userOS == 'iphone':
+  userOS = getOS()
+  if userOS == 'iOS':
     return redirect("snapchat://add/{}".format(account), code=307)
   elif userOS == 'android':
     return redirect("intent://add/{}#Intent;scheme=snapchat;package=com.snapchat.android;end;".format(account), code=307)
@@ -29,8 +30,8 @@ def snapchat(account):
 
 @app.route('/instagram/<account>')
 def instagram(account):
-  userOS = request.user_agent.platform
-  if userOS == "ipad" or userOS == 'iphone':
+  userOS = getOS()
+  if userOS == 'iOS':
     return redirect("instagram://user?username={}".format(account), code=307)
   elif userOS == 'android':
     return redirect("intent://instagram.com/_u/{}/#Intent;package=com.instagram.android;scheme=https;end".format(account), code=307)
