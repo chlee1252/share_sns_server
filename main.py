@@ -26,7 +26,7 @@ def snapchat(account):
   elif userOS == 'android':
     return redirect("intent://add/{}#Intent;scheme=snapchat;package=com.snapchat.android;end;".format(account), code=307)
   else:
-    return 'others '
+    return 'others'
 
 @app.route('/instagram/<account>')
 def instagram(account):
