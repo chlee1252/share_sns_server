@@ -7,33 +7,33 @@ app = Flask(__name__)
 def main():
   return "Hello"
 
-@app.route('/facebook')
-def facebook():
+@app.route('/facebook/<account>')
+def facebook(account):
   userOS = request.user_agent.platform
   if userOS == "ipad" or userOS == "iphone":
-    return redirect("fb://profile?id=changhwan.lee.71", code=307)
+    return redirect("fb://profile?id={}".format(account), code=307)
   elif userOS == "android":
-    return redirect("intent://profile/100002434323843#Intent;package=com.facebook.katana;scheme=fb;end", code=307)
+    return redirect("intent://profile/{}#Intent;package=com.facebook.katana;scheme=fb;end".format(account), code=307)
   else:
     return redirect("https://www.facebook.com/")
 
-@app.route('/snapchat')
-def snapchat():
+@app.route('/snapchat/<account>')
+def snapchat(account):
   userOS = request.user_agent.platform
   if userOS == "ipad" or userOS == 'iphone':
-    return redirect("snapchat://add/chlee1252", code=307)
+    return redirect("snapchat://add/{}".format(account), code=307)
   elif userOS == 'android':
-    return redirect("intent://add/chlee1252#Intent;scheme=snapchat;package=com.snapchat.android;end;", code=307)
+    return redirect("intent://add/{}#Intent;scheme=snapchat;package=com.snapchat.android;end;".format(account), code=307)
   else:
     return 'others '
 
-@app.route('/instagram')
-def instagram():
+@app.route('/instagram/<account>')
+def instagram(account):
   userOS = request.user_agent.platform
   if userOS == "ipad" or userOS == 'iphone':
-    return redirect("instagram://user?username=chlee1127", code=307)
+    return redirect("instagram://user?username={}".format(account), code=307)
   elif userOS == 'android':
-    return redirect("intent://instagram.com/_u/chlee1127/#Intent;package=com.instagram.android;scheme=https;end", code=307)
+    return redirect("intent://instagram.com/_u/{}/#Intent;package=com.instagram.android;scheme=https;end".format(account), code=307)
   else:
     return 'others'
 
