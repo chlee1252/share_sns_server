@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def main():
-  return "Hello"
+  return ""
 
 @app.route('/facebook/<account>')
 def facebook(account):
