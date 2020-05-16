@@ -10,6 +10,7 @@ def main():
 
 @app.route('/facebook/<account>')
 def facebook(account):
+  #TODO: Find a way to redirect to facebook app with normal url
   userOS = getOS()
   if userOS == 'iOS':
     return redirect("fb://profile?id={}".format(account), code=307)
